@@ -4,13 +4,17 @@ import elements.DropDownList;
 import elements.InputFields;
 import elements.TextInputFileds;
 import models.SalesForceAccountModel;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import tests.SalesForceAccountTest;
 
 public class CreateAccountPage extends BasePage {
 
     private By SEARCH_INPUT = By.xpath("//article[contains(., 'New Account')]//label[contains(., 'Account Name')]/following-sibling::div//input");
     private By SAVE_BUTTON = By.xpath("//button[@title='Save']");
+    private static final Logger LOGGER = LogManager.getLogger(SalesForceAccountTest.class.getName());
 
 
     public CreateAccountPage(WebDriver driver) {
@@ -18,6 +22,9 @@ public class CreateAccountPage extends BasePage {
     }
 
     public void saveNewAccountForm(SalesForceAccountModel accountModel) {
+        LOGGER.info("saveNewAccountForm method started");
+        LOGGER.debug("Debug");
+        LOGGER.trace("Trace");
         driver.findElement(SEARCH_INPUT).sendKeys(accountModel.getAccountName());
         new InputFields(driver, "Phone").inputText(accountModel.getPhone());
         new InputFields(driver, "Fax").inputText(accountModel.getFax());
@@ -41,6 +48,9 @@ public class CreateAccountPage extends BasePage {
     }
 
     public boolean isNewAccountSuccessfulCreated() {
+        LOGGER.info("isNewAccountSuccessfulCreated method started");
+        LOGGER.debug("Debug");
+        LOGGER.trace("Trace");
         driver.findElement(By.xpath("//div[@data-aura-class='forceToastMessage']")).isDisplayed();
         return true;
     }

@@ -16,8 +16,6 @@ public class SalesForceAccountTest extends BaseTest {
     @Test
     public void loginTest(){
         LOGGER.info("SalesForceAccountTest started");
-        LOGGER.debug("Debug");
-        LOGGER.trace("Trace");
         loginPage = new LoginPage(driver);
         loginPage.openPage();
         loginPage.makeLogin();

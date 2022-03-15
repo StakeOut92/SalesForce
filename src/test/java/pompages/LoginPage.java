@@ -17,15 +17,11 @@ public class LoginPage extends BasePage {
 
     public void openPage() {
         LOGGER.info("openPage method started");
-        LOGGER.debug("Debug");
-        LOGGER.trace("Trace");
         driver.get(WebUrls.SALESFORCE_LOGIN_URL);
     }
 
     public void makeLogin(){
         LOGGER.info("makeLogin method started");
-        LOGGER.debug("Debug");
-        LOGGER.trace("Trace");
         driver.findElement(USERNAME_INPUT).sendKeys(NamesAndPasswords.NAME);
         driver.findElement(PASSWORD_INPUT).sendKeys(NamesAndPasswords.PASSWORD);
         driver.findElement(LOGIN_BUTTON).click();

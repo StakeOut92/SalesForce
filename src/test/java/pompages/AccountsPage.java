@@ -17,14 +17,10 @@ public class AccountsPage extends BasePage {
 
     public void OpenCreatedAccountModal() {
         LOGGER.info("OpenCreatedAccountModal method started");
-        LOGGER.debug("Debug");
-        LOGGER.trace("Trace");
         driver.findElement(NEW_BUTTON).click();
     }
     public void openAccountsTab(){
         LOGGER.info("openAccountsTab method started");
-        LOGGER.debug("Debug");
-        LOGGER.trace("Trace");
         driver.get(WebUrls.SALESFORCE_ACCOUNT_URL);
     }
 }

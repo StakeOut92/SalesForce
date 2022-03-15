@@ -23,8 +23,6 @@ public class CreateAccountPage extends BasePage {
 
     public void saveNewAccountForm(SalesForceAccountModel accountModel) {
         LOGGER.info("saveNewAccountForm method started");
-        LOGGER.debug("Debug");
-        LOGGER.trace("Trace");
         driver.findElement(SEARCH_INPUT).sendKeys(accountModel.getAccountName());
         new InputFields(driver, "Phone").inputText(accountModel.getPhone());
         new InputFields(driver, "Fax").inputText(accountModel.getFax());

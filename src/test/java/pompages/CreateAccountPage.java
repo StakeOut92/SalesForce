@@ -3,6 +3,7 @@ package pompages;
 import elements.DropDownList;
 import elements.InputFields;
 import elements.TextInputFileds;
+import io.qameta.allure.Step;
 import models.SalesForceAccountModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -20,7 +21,7 @@ public class CreateAccountPage extends BasePage {
     public CreateAccountPage(WebDriver driver) {
         super(driver);
     }
-
+    @Step("Input values in all fields and click 'Save Button'")
     public void saveNewAccountForm(SalesForceAccountModel accountModel) {
         LOGGER.info("saveNewAccountForm method started");
         driver.findElement(SEARCH_INPUT).sendKeys(accountModel.getAccountName());
@@ -44,11 +45,9 @@ public class CreateAccountPage extends BasePage {
         new InputFields(driver, "Billing Country").inputText(accountModel.getBillingCountry());
         driver.findElement(SAVE_BUTTON).click();
     }
-
+    @Step("Check that 'Successful account creation' is displayed")
     public boolean isNewAccountSuccessfulCreated() {
         LOGGER.info("isNewAccountSuccessfulCreated method started");
-        LOGGER.debug("Debug");
-        LOGGER.trace("Trace");
         driver.findElement(By.xpath("//div[@data-aura-class='forceToastMessage']")).isDisplayed();
         return true;
     }

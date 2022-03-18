@@ -1,5 +1,6 @@
 package pompages;
 
+import io.qameta.allure.Step;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -15,11 +16,12 @@ public class LoginPage extends BasePage {
     private By LOGIN_BUTTON = By.id("Login");
     private static final Logger LOGGER = LogManager.getLogger(SalesForceAccountTest.class.getName());
 
+    @Step("Open login url")
     public void openPage() {
         LOGGER.info("openPage method started");
         driver.get(WebUrls.SALESFORCE_LOGIN_URL);
     }
-
+    @Step("Input email and password in login fields")
     public void makeLogin(){
         LOGGER.info("makeLogin method started");
         driver.findElement(USERNAME_INPUT).sendKeys(NamesAndPasswords.NAME);

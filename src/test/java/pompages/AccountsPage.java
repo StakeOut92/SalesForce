@@ -1,5 +1,6 @@
 package pompages;
 
+import io.qameta.allure.Step;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -15,10 +16,12 @@ public class AccountsPage extends BasePage {
         super(driver);
     }
 
+    @Step("Click to 'New Button'")
     public void OpenCreatedAccountModal() {
         LOGGER.info("OpenCreatedAccountModal method started");
         driver.findElement(NEW_BUTTON).click();
     }
+    @Step("Open url to creation account tab")
     public void openAccountsTab(){
         LOGGER.info("openAccountsTab method started");
         driver.get(WebUrls.SALESFORCE_ACCOUNT_URL);
